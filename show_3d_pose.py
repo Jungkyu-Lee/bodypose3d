@@ -44,6 +44,7 @@ def visualize_3d(p3ds):
         if framenum%2 == 0: continue #skip every 2nd frame
         for bodypart, part_color in zip(body, colors):
             for _c in bodypart:
+                # print(_c)
                 ax.plot(xs = [kpts3d[_c[0],0], kpts3d[_c[1],0]], ys = [kpts3d[_c[0],1], kpts3d[_c[1],1]], zs = [kpts3d[_c[0],2], kpts3d[_c[1],2]], linewidth = 4, c = part_color)
 
         #uncomment these if you want scatter plot of keypoints and their indices.
@@ -57,11 +58,11 @@ def visualize_3d(p3ds):
         ax.set_yticks([])
         ax.set_zticks([])
 
-        ax.set_xlim3d(-10, 10)
+        ax.set_xlim3d(-200, 200)
         ax.set_xlabel('x')
-        ax.set_ylim3d(-10, 10)
+        ax.set_ylim3d(-200, 200)
         ax.set_ylabel('y')
-        ax.set_zlim3d(-10, 10)
+        ax.set_zlim3d(-200, 200)
         ax.set_zlabel('z')
         plt.pause(0.1)
         ax.cla()

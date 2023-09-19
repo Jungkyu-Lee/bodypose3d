@@ -40,10 +40,10 @@ def run_mp(input_stream1, input_stream2, P0, P1):
         ret1, frame1 = cap1.read()
 
         if not ret0 or not ret1: break
-
+        # print(frame0.shape)
         #crop to 720x720.
         #Note: camera calibration parameters are set to this resolution.If you change this, make sure to also change camera intrinsic parameters
-        if frame0.shape[1] != 720:
+        if frame0.shape[1] != 1920:
             frame0 = frame0[:,frame_shape[1]//2 - frame_shape[0]//2:frame_shape[1]//2 + frame_shape[0]//2]
             frame1 = frame1[:,frame_shape[1]//2 - frame_shape[0]//2:frame_shape[1]//2 + frame_shape[0]//2]
 
@@ -142,8 +142,11 @@ def run_mp(input_stream1, input_stream2, P0, P1):
 if __name__ == '__main__':
 
     #this will load the sample videos if no camera ID is given
-    input_stream1 = 'media/cam0_test.mp4'
-    input_stream2 = 'media/cam1_test.mp4'
+    # input_stream1 = 'media/cam0_test.mp4'
+    # input_stream2 = 'media/cam1_test.mp4'
+    input_stream1 = 'camera1_output.mp4'
+    input_stream2 = 'camera2_output.mp4'
+
 
     #put camera id as command line arguements
     if len(sys.argv) == 3:
